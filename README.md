@@ -1,35 +1,35 @@
-# db-university
+# b-university
 
-sercizio di oggi:
-nome repo: db-university
-Modellizzare la struttura di un database per memorizzare tutti i dati riguardanti una università:
+## Description
 
-- sono presenti diversi Dipartimenti (es.: Lettere e Filosofia, Matematica, Ingegneria ecc.);
-- ogni Dipartimento offre più Corsi di Laurea (es.: Civiltà e Letterature Classiche, Informatica, Ingegneria Elettronica ecc..)
-- ogni Corso di Laurea prevede diversi Corsi (es.: Letteratura Latina, Sistemi Operativi 1, Analisi Matematica 2 ecc.);
-- ogni Corso può essere tenuto da diversi Insegnanti;
-- ogni Corso prevede più appelli d'Esame;
-- ogni Studente è iscritto ad un solo Corso di Laurea;
-- ogni Studente può iscriversi a più appelli di Esame;
-- per ogni appello d'Esame a cui lo Studente ha partecipato, è necessario memorizzare il voto ottenuto, anche se non sufficiente.
-  Pensiamo a quali entità (tabelle) creare per il nostro database e cerchiamo poi di stabilirne le relazioni. Infine, andiamo a definire le colonne e i tipi di dato di ogni tabella.
-  Utilizzare https://www.diagrams.net/ per la creazione dello schema.
-  Esportare quindi il diagramma in jpg e caricarlo nella repo. (modificato)
+Model the structure of a database to store all data concerning a university:
 
-## dEpartments
+- there are several departments (e.g.: Humanities, Mathematics, Engineering, etc.);
+- each Department offers several Degree Programmes (e.g.: Classics, Computer Science, Electronic Engineering, etc.)
+- each degree programme has several courses (e.g.: Latin Literature, Operating Systems 1, Mathematical Analysis 2, etc.);
+- each course can be taught by different teachers;
+- each course includes several exam calls;
+- each student is enrolled in only one Degree Course;
+- each student can register for more than one exam;
+- for each Examination Call in which the Student has participated, it is necessary to memorize the grade obtained, even if not sufficient.
+  Let’s think about what entities (tables) we create for our database and then try to establish the relationships. Finally, let’s define the columns and data types of each table.
+  Use https://www.diagrams.net/ to create the schema.
+  Then export the diagram to jpg and load it into the repo. (modified)
+
+## departments
 
 ID|BIGINT| PK | INDEX | AI |UNIQUE| NOTNULL
 name | VARCHAR (50) | NOTNULL
 description |TEXT | NULL
 
-## corsi_laurea
+## coursework
 
 ID |BIGINT| PK | INDEX | AI |UNIQUE| NOTNULL
 id_department |FK | NOTNULL
 name | VARCHAR (50) | NOTNULL
 description |TEXT | NULL
 
-## materie
+## subjects
 
 ID|BIGINT| PK | INDEX | AI |UNIQUE| NOTNULL
 id_corsolaurea |FK | NOTNULL
@@ -40,29 +40,20 @@ credits | SMALLINT | NOTNULL
 ## teachers
 
 ID|BIGINT| PK | INDEX | AI |UNIQUE| NOTNULL
-id_materia |FK | NOTNULL
+id_matter |FK | NOTNULL
 name |VARCHAR (100) | NOTNULL
 surname |VARCHAR (100) | NOTNULL
-materia |VARCHAR (50) | NULL
+matter |VARCHAR (50) | NULL
 
 ## students
 
 ID|BIGINT| PK | INDEX | AI |UNIQUE| NOTNULL
 id_corsolaurea |FK | NOTNULL
-id_appello |FK | NOTNULL
+id_appeal |FK | NOTNULL
 name |VARCHAR (100) | NOTNULL
 surname |VARCHAR (100) | NOTNULL
 students_number | MEDIUMINT| NOTNULL
 
-## appelli
+## appeals
 
-ID|INT| PK | INDEX | AI |UNIQUE| NOTNULL
-id_materia |FK | NOTNULL
-date |DATE| NOTNULL
-
-## votes_students
-
-ID|INT| PK | INDEX | AI |UNIQUE| NOTNULL
-id_appello |FK | NOTNULL
-id_student |FK | NOTNULL
-vote | INT | NOTNULL
+ID|

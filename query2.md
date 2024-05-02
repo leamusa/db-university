@@ -60,7 +60,11 @@ INNER JOIN departments ON degree_courses.department_id = departments.id
 ORDER BY students.surname, students.first_name;
 
 ## Select all degree programmes with their courses and teachers
---need to add
+
+SELECT degree_courses.name AS degree_program, courses.name AS course, teachers.name AS teacher
+FROM degree_courses
+INNER JOIN courses ON degree_courses.id = courses.degree_course_id
+INNER JOIN teachers ON courses.teacher_id = teachers.id;
 
 ## Select all teachers who teach in the Department of Mathematics (54)
 
