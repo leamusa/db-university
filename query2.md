@@ -10,19 +10,34 @@ Upload a second file in the same repo as yesterday db-university with today’s 
 
 ## Count how many members there were each year
 
-SELECT COUNT(id) AS 'enrolments_by_year', YEAR(enrolment_date) FROM students GROUP BY YEAR(enrolment_date);
+SELECT COUNT(id)
+AS 'enrolments_by_year',
+YEAR(enrolment_date)
+FROM students
+GROUP BY YEAR(enrolment_date);
 
 ## Count the teachers who have the office in the same building
 
-SELECT COUNT(id) AS 'teachers_by_office', office_address FROM teachers GROUP BY office_address;
+SELECT COUNT(id)
+AS 'teachers_by_office',
+office_address
+FROM teachers
+GROUP BY office_address;
 
 ## Calculate the average of the marks of each exam
 
-SELECT AVG(vote), exam_id FROM exam_student GROUP BY exam_id;
+SELECT AVG(vote),
+exam_id
+FROM exam_student
+GROUP BY exam_id;
 
 ## Count how many degree courses there are for each department
 
-SELECT COUNT(id) AS 'degrees_by_department', department_id FROM degrees GROUP BY department_id;
+SELECT COUNT(id)
+AS 'degrees_by_department',
+department_id
+FROM degrees
+GROUP BY department_id;
 
 # Joins
 
