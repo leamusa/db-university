@@ -101,11 +101,18 @@ WHERE departments.name = 'Dipartimento di Matematica';
 
 SELECT students.id, students.name, students.surname,
 COUNT(exam_id) AS exam_try,
-MAX(vote) AS max_mark,
-MIN(vote) AS min_mark
+MAX(vote) AS max_vote,
+MIN(vote) AS min_vote
 FROM exam_student
 JOIN students ON exam_student.student_id = students.id
 GROUP BY students.id, students.name, students.surname
 HAVING MIN(vote) >= 18 AND MAX(vote) <= 30;
+
+
+------
+
+
+
+
 
 ```
